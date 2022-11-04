@@ -48,12 +48,13 @@ async def _scout(*args, **kwargs):
     team = {k: [v] for k, v in zip(range(1, 6), player_ids.value.split(','))}
 
     def reqwest(url):
+        output = json.loads('GET: ' + url[:80])
         req = XMLHttpRequest.new()
         req.open("GET", url, False)
         req.send(None)
         output = str(req.response)
         add_item(output)
-        output = json.loads(output)
+        #output = json.loads(output)
         return output
 
     def get_player_medal(account_id):
@@ -136,9 +137,9 @@ async def _scout(*args, **kwargs):
         report['{}_points'.format(i + 1)] = o['points']
 
     #listbox.innerHTML = report.to_html(classes="table")
-    add_item(report.columns.values)
+    add_item(report.columns.values.tolist())
     for k, row in report.iterrows():
-        add_item(row.values)
+        add_item(row.values.tolist())
 
 
 scout = create_proxy(_scout)
