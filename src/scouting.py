@@ -48,13 +48,14 @@ async def _scout(*args, **kwargs):
     team = {k: [v] for k, v in zip(range(1, 6), player_ids.value.split(','))}
 
     def reqwest(url):
-        output = json.loads('GET: ' + url[:80])
+        add_item('GET: ' + url[:80])
+        
         req = XMLHttpRequest.new()
         req.open("GET", url, False)
         req.send(None)
         output = str(req.response)
-        add_item(output)
-        #output = json.loads(output)
+        #add_item(output)
+        output = json.loads(output)
         return output
 
     def get_player_medal(account_id):
