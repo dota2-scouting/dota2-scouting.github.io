@@ -1,0 +1,9 @@
+/* theme.css */
+
+body {
+  padding: 10px;
+}
+canvas {
+  max-width: 1200px;
+  max-height: 800px;
+}

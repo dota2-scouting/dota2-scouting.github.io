@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>dota2-scouting</title>
+	<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+	<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+	<link rel="stylesheet" href="theme.css"/>
+</head>
+<py-env>
+- pandas
+</py-env>
+<py-script src="src/scouting.py"></py-script>
+<body>
+	<div class="grid w-full m-auto justify-items-start">
+		<div>
+			<select name="mode" id="mode-select">
+				<option value="a">mode a</option>
+				<option value="b">mode b</option>
+			</select>
+		</div>
+		<div id="player-ids" class = "">
+			<p id="player-ids-label" class="px-4">player ids (, sep)
+			<input type="text" id="player-ids-input" class="border-2 border-gray-300"></p>
+		</div>
+		<div id="scouting">
+			<select id="listbox" size="30" class="h-48 m-8 bg-blue-50">test</select>
+		</div>
+		<div id="buttons">
+			<button id="scout" class="m-4 bg-gray-200 border-2 border-gray-400 rounded-md">scout</button>
+		</div>
+	</div>
+</body>
+</html>
