@@ -28,9 +28,9 @@ async def _scout(*args, **kwargs):
         v = text
         option.value = v
         option.text = v
-        listbox.appendChild(option)
+        html['scouting'].appendChild(option)
 
-    listbox.innerHTML = ''
+    html['scouting'].innerHTML = ''
     add_item('scouting...')
 
     account_ids = [int(a) for a in html['account-ids'].value.split(',')]
