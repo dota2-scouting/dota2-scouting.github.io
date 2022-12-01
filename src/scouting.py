@@ -12,6 +12,13 @@ from network import file_io
 scouting_csv_url = "https://raw.githubusercontent.com/jeromehage/dota2-scouting/master/hero_stats2.csv"
 stats = pd.read_csv(file_io(scouting_csv_url), sep = ';', index_col = 0)
 
+## todo: split scout() into 3 functions:
+# 1) get player info (first account info, medal = of the highest account)
+# 2) feed into gen scout data
+# 3) apply scout formula
+
+
+
 def weights_flex(flex = 0.25):
     # team flexibility [0, 1]
     # 0.0 will only play their roles + heroes for the role
