@@ -34,10 +34,10 @@ async def _scout(*args, **kwargs):
     add_item('scouting...')
 
     account_ids = [int(a) for a in html['account-ids'].value.split(',')]
+    role = int(html['role'].value)
     flex = float(html['flex'].value)
     date = int(html['date'].value)
     ranked = bool(int(html['ranked-only'].value))
-    role = int(html['role'].value)
 
     params = {'date': date}
     if ranked:
