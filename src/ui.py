@@ -13,7 +13,7 @@ html['role'] = document.getElementById("role-select")
 html['account-ids'] = document.getElementById("account-ids-input")
 html['flex'] = document.getElementById("flex-input")
 html['date'] = document.getElementById("date-input")
-html['ranked-only'] = document.getElementById("ranked-only-input")
+html['ranked-only'] = document.getElementById("ranked-only-select")
 # output
 html['avatar'] = document.getElementById("avatar-label")
 html['account-id'] = document.getElementById("account-id-label")
@@ -36,21 +36,28 @@ async def _scout(*args, **kwargs):
     account_ids = [int(a) for a in html['account-ids'].value.split(',')]
     flex = float(html['flex'].value)
     date = int(html['date'].value)
-    ranked = html['ranked-only'].value
-    add_item(str(type(ranked)) + ' ' + str(ranked)) # temp
-    role = html['role'].value
-    add_item(str(type(role)) + ' ' + str(role)) # temp
+    ranked = bool(int(html['ranked-only'].value))
+    role = int(html['role'].value)
 
     params = {'date': date}
     if ranked:
         params['lobby_type'] = 7
+
+    add_item(str([account_ids, role, flex, params]))
+    profile, report = scout(account_ids, role, flex, params)
+    html['avatar'].src = profile['avatar']
+    html['account-id'].innerText = profile['name']
+    html['country'].innerText = str(profile['country'])
+    html['medal'].innerText = str(profile['medal'])
     
     #listbox.innerHTML = report.to_html(classes="table")
-    #add_item(report.columns.values.tolist())
-    #for k, row in report.iterrows():
-    #    add_item(row.values.tolist())
+    add_item(report.columns.values.tolist())
+    for k, row in report.iterrows():
+        add_item(row.values.tolist())
 
 async def _export(*args, **kwargs):
+    # https://www.jhanley.com/blog/pyscript-files-and-file-systems-part-2/
+    # https://stackoverflow.com/questions/72463208/how-to-save-figure-using-pyscript
     pass
 
 scout_proxy = create_proxy(_scout)

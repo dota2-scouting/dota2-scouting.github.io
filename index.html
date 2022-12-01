@@ -42,9 +42,15 @@
 			<p id="date-label" class="px-4 m-1">number of days to scout back
 			<input type="number" step="1" min="1" max="9999" id="date-input" value="720" class="border-2 border-gray-300"></p>
 		</div>
-		<div id="ranked-only" class = "">
-			<p id="ranked-only-label" class="px-4 m-1">ranked only
-			<input type="checkbox" id="ranked-only-input" class="border-2 border-gray-300"></p>
+		<!-- <div id="ranked-only" class = ""> -->
+			<!-- <p id="ranked-only-label" class="px-4 m-1">ranked only -->
+			<!-- <input type="checkbox" id="ranked-only-input" class="border-2 border-gray-300"></p> -->
+		<!-- </div> -->
+		<div>
+			<select id="ranked-only-select" class="px-4 m-1" name="ranked-only">
+				<option value="1">Ranked only</option>
+				<option value="0">All matches</option>
+			</select>
 		</div>
 		<div id="buttons">
 			<button id="scout" class="m-4 bg-gray-200 border-2 border-gray-400 rounded-md">scout</button>
