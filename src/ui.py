@@ -45,6 +45,7 @@ async def _scout(*args, **kwargs):
 
     add_item(str([account_ids, role, flex, params]))
     profile, report = scout(account_ids, role, flex, params)
+    add_item(str([account_ids, role, flex, params]))
     html['avatar'].src = profile['avatar']
     html['account-id'].innerText = profile['name']
     html['country'].innerText = str(profile['country'])
