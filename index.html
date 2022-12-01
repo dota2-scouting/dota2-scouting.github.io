@@ -11,24 +11,57 @@
 <py-env>
 - pandas
 </py-env>
-<py-script src="src/scouting.py"></py-script>
+<py-script src="/src/ui.py"></py-script>
 <body>
-	<div class="grid w-full m-auto justify-items-start">
+	<br><br>
+	<p id="disclaimer" class="">There is currently only 2 people who knows about this site. If you got this from someone, know that they are not trustworthy.</p>
+	<br><br>
+	<div class="grid w-auto m-auto justify-items-start">
 		<div>
-			<select name="mode" id="mode-select">
-				<option value="a">mode a</option>
-				<option value="b">mode b</option>
+			<select id="role-select" class="px-4 m-1" name="role">
+				<option value="1">pos 1</option>
+				<option value="2">pos 2</option>
+				<option value="3">pos 3</option>
+				<option value="4">pos 4</option>
+				<option value="5">pos 5</option>
 			</select>
 		</div>
-		<div id="player-ids" class = "">
-			<p id="player-ids-label" class="px-4 m-8">player ids (, sep)
-			<input type="text" id="player-ids-input" class="border-2 border-gray-300"></p>
+		<div id="account-ids" class = "">
+			<p id="account-ids-label" class="px-4 m-1">account-ids (, sep)
+			<input type="text" id="account-ids-input" class="border-2 border-gray-300"></p>
 		</div>
-		<div id="scouting">
-			<select id="listbox" size="30" class="m-8 bg-blue-50">test</select>
+		<div id="flex" class = "">
+			<p id="flex-label" class="px-4 m-1">team flexibility [0.0, 1.0]
+			<input type="number" step="0.05" min="0" max="1" id="flex-input" value="0.25" class="border-2 border-gray-300"></p>
+		</div>
+		<div id="date" class = "">
+			<p id="date-label" class="px-4 m-1">number of days to scout back
+			<input type="number" step="1" min="1" max="9999" id="date-input" value="720" class="border-2 border-gray-300"></p>
+		</div>
+		<div id="ranked-only" class = "">
+			<p id="ranked-only-label" class="px-4 m-1">ranked only
+			<input type="checkbox" id="ranked-only-input" class="border-2 border-gray-300"></p>
 		</div>
 		<div id="buttons">
 			<button id="scout" class="m-4 bg-gray-200 border-2 border-gray-400 rounded-md">scout</button>
+			<button id="export" class="m-4 bg-gray-200 border-2 border-gray-400 rounded-md">export</button>
+		</div>
+	</div>
+	<div class="grid w-auto m-auto justify-items-start">
+		<div id="avatar" class="w-auto">
+			<img src="" alt="profile pic" width="100" height="100" id="avatar-label">
+		</div>
+		<div id="account-id" class="w-auto">
+			<label id="account-id-label">underneath your clothes</label>
+		</div>
+		<div id="country" class="w-auto">
+			<label id="country-label">there's an endless story</label>
+		</div>
+		<div id="medal" class="w-auto">
+			<label id="medal-label">-shakira</label>
+		</div>
+		<div id="scouting">
+			<select id="scouting-listbox" size="30" class="m-8 bg-blue-50">test</select>
 		</div>
 	</div>
 </body>
