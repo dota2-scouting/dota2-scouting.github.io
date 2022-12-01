@@ -2,8 +2,8 @@
 
 import asyncio
 from js import document, XMLHttpRequest
-#from pyodide import create_proxy
-from pyodide.ffi import create_proxy
+from pyodide import create_proxy
+#from pyodide.ffi import create_proxy
 
 from scouting import scout
 
