@@ -58,17 +58,3 @@ document.getElementById("scout").addEventListener("click", scout_proxy)
 
 export_proxy = create_proxy(_export)
 document.getElementById("export").addEventListener("click", export_proxy)
-
-"""
-# global params
-params = {'lobby_type': 7, 'date': 365}
-flex = 0.25
-
-# player params
-account_ids = [99374795]
-role = 1 # drop_down_menus['role'].get()
-
-profile, scouting = scout(account_ids, role, flex, **params)
-print(profile)
-print(scouting)
-"""
