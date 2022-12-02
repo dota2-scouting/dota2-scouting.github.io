@@ -3,9 +3,11 @@
 from network import cached_requests
 cache = cached_requests()
 
+import asyncio
+
 ## opendota API calls
 
-def get_player_data(account_id):
+async def get_player_data(account_id):
     # fill the following
     profile = {'name': '',
                'avatar': '',
@@ -19,7 +21,7 @@ def get_player_data(account_id):
     profile['medal'] = data['rank_tier'] // 10
     return profile
 
-def get_player_heroes(account_id, **parameters):
+async def get_player_heroes(account_id, **parameters):
     params = ''
     if parameters:
         params = '?' + '&'.join('{}={}'.format(k, v) for k, v in parameters.items())

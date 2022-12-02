@@ -2,7 +2,6 @@
 
 import json
 #import time
-import asyncio
 # TODO WAIT FOR OPENDOTA
 
 
@@ -24,6 +23,7 @@ def file_io(path):
 from js import XMLHttpRequest
 from pyodide.http import open_url
 from io import StringIO
+import asyncio
 
 #async
 async def xrequest(url):
@@ -37,8 +37,8 @@ async def xrequest(url):
     await asyncio.sleep(2)
     return output
 
-class cached_requests(dict):
-    def request(self, url):
+async class cached_requests(dict):
+    async def request(self, url):
         if url not in self:
             self[url] = xrequest(url)
         return self[url]
