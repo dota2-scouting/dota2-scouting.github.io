@@ -1,6 +1,6 @@
 # src/ui.py
 
-import asyncio
+#import asyncio
 from js import document, XMLHttpRequest
 from pyodide import create_proxy
 #from pyodide.ffi import create_proxy
@@ -21,7 +21,8 @@ html['country'] = document.getElementById("country-label")
 html['medal'] = document.getElementById("medal-label")
 html['scouting'] = document.getElementById("scouting-listbox")
 
-async def _scout(*args, **kwargs):
+#async
+def _scout(*args, **kwargs):
 
     def add_item(text):
         option = document.createElement('option')
@@ -56,7 +57,8 @@ async def _scout(*args, **kwargs):
     for k, row in report.iterrows():
         add_item(row.values.tolist())
 
-async def _export(*args, **kwargs):
+#async
+def _export(*args, **kwargs):
     # https://www.jhanley.com/blog/pyscript-files-and-file-systems-part-2/
     # https://stackoverflow.com/questions/72463208/how-to-save-figure-using-pyscript
     pass

@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import json
 #import time
-import asyncio
 
 from api import * # get_player_data, get_player_heroes
 from network import file_io
@@ -43,7 +42,7 @@ def weights_flex(flex = 0.25):
     xi = (flex - x[i - 1]) / (x[i] - x[i - 1])
     return y[i] * xi + y[i - 1] * (1 - xi)
 
-async def scout(account_ids, role, flex, **params):
+def scout(account_ids, role, flex, **params):
     # hero viability for each role
     # (role, heroes)
     # (5, 123) matrix
